@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick=""></button>
+    <button onclick=""></button>
+    <button onclick=""></button>
+    <button onclick=""></button>
+
+
+    <script>
+        // PRIMER PUNTO
+        function uno() {
+            numero = Number(prompt("Ingrese el número"));
+            if(isNaN(numero)){
+                alert("El dato ingresado no es un  numero")
+            }else if(numero<0){
+                alert("El número ingresado es negativo")
+            }else {
+                alert("El numero ingresado es positivo")
+            }
+        }
+        // ******************SEGUNDO ´PUNTO************
+        function segundo(){
+            numero = Number(prompt("Ingrese la cantidad de personas"));
+            suma = 0;
+            promedio = 0;
+            if(isNaN(numero)){
+                for (let i = 0; i < numero-1; i++) {
+                    edad= Number(prompt("Ingrese la edad"));
+                    if (isNaN(edad)) {
+                        alert("El dato no es un número");
+                        i--
+                    }else{
+                        suma = suma +edad;
+                    }
+                }
+                promedio = suma/numero;
+            }
+            alert(`La cantidad de edades ingresadas es ${numero} y el promedio de dichas edades es ${promedio}`);
+        }
+// ******************TERCER PUNTO****************
+
+        segundos = 0;
+        minutos = 0;
+        horas = 0;
+        t = 0;
+        function tercero() {
+        segundos++;
+        if (segundos >= 60) {
+            segundos = 0;
+            minutos++;
+            if (minutos >= 60) {
+            minutos = 0;
+            }
+        }
+        // console.log(`00:0${minutos}:`)
+        console.log(
+            "00:" +
+            (minutos ? (minutos > 9 ? minutos : "0" + minutos) : "00") +
+            ":" +
+            (segundos > 9 ? segundos : "0" + segundos)
+        );
+
+        timer();
+        if (minutos == 1) {
+            parar();
+        }
+}
+
+function timer() {
+  t = setTimeout(tercero, 1000);
+}
+timer();
+function parar() {
+  clearTimeout(t);
+}
+
+        
+// ************CUARTO PUNTO******************
+function voyelles(frase){
+
+    var vocal = 0
+    var consonante = 0
+    frase = frase.replace(" ","").toLowerCase()
+    console.log(frase)
+    for (let i = 0; i < frase.length; i++) {
+        if (frase.charAt(i)== ("a"||"e"||"i"||"o"||"u")){
+            vocal = vocal +1
+        } else {
+            consonante = consonante +1
+        }  
+    }
+    console.log("El numero de vocales de la frase es: "+ vocal )
+  
+}
+// *************QUINTO ´PUNTO***************
+function quinto(){
+    numero=Number(prompt("Ingrese el número, 1: Cuadrado,2 : Rectangulo, 3: Triangulo, 4: Circulo"));
+    switch (numero) {
+        case 1:
+            lado = Number(prompt("Ingrese el lado del cuadrado"));
+            area = lado**2;
+            alert(`El area del cuadrado es: ${area}`);
+            break;
+        case 2:
+            ladoa = Number(prompt("Ingrese lado a del rectangulo"));
+            ladob = Number(prompt("Ingrese lado a del rectangulo"));
+            area = ladoa*ladob;
+            alert(`El area del rectángulo es: ${area}`);
+        case 3:
+            lado1 = Number(prompt("Ingrese lado 1 del triangulo"));
+            lado2 = Number(prompt("Ingrese lado 2 del triangulo"));
+            lado3 = Number(prompt("Ingrese lado 3 del triangulo"));
+            // semiperimetro = (lado1 + lado2 + lado3)/2;
+            var perimetro = (lado1 + lado2 + lado3)/2;
+            var area =  Math.sqrt(perimetro*((perimetro-lado1)*(perimetro-lado2)*(perimetro-lado3)));
+            alert(`El area del triangulo es: ${area}`);
+        case 4:
+            radio = Number(prompt("Ingrese radio del circulo"));
+            area = radio*2*Math.PI;
+            alert(`El area del circulo es: ${area}`);
+        default:
+            break;
+    }
+}
+
+// ****************OCTAVO PUNTO*****************
+    function octavo(){
+        console.log("Figura a");
+        figa = 1;
+        for (let i = 1; i < 10; i++) {
+        if (i < 5) {
+            console.log("*".repeat(figa));
+            figa = figa + 2;
+        } else {
+            console.log("*".repeat(figa));
+            figa = figa - 2;
+        }
+        }
+
+        console.log("Figura b");
+        figa=9;
+        for (let i = 1; i < 10; i++) {
+            if(i<6){
+                console.log("*".repeat(figa));
+                figa= figa-2;
+                
+            }else{
+                console.log("*".repeat(figa));
+                figa=figa+2;
+            }
+        }
+        piramide = Number(prompt("ingrese un número"));
+        console.log("Tu figura")
+            for (let i = piramide; i >0; i--) {
+                console.log("*".repeat(i));
+            }
+        
+    }
+    </script>
+</body>
+</html>
